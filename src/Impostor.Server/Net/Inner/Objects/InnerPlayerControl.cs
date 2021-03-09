@@ -305,6 +305,7 @@ namespace Impostor.Server.Net.Inner.Objects
                         if (PlayerInfo.RequestedColorId == null)
                         {
                             // throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetColor)} for a player that didn't request it");
+                            break;
                         }
 
                         var expected = PlayerInfo.RequestedColorId!.Value;
