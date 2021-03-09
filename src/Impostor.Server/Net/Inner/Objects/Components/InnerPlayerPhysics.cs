@@ -30,23 +30,23 @@ namespace Impostor.Server.Net.Inner.Objects.Components
         {
             if (call != RpcCalls.EnterVent && call != RpcCalls.ExitVent)
             {
-                _logger.LogWarning("{0}: Unknown rpc call {1}", nameof(InnerPlayerPhysics), call);
+                // _logger.LogWarning("{0}: Unknown rpc call {1}", nameof(InnerPlayerPhysics), call);
                 return;
             }
 
             if (!sender.IsOwner(this))
             {
-                throw new ImpostorCheatException($"Client sent {call} to an unowned {nameof(InnerPlayerControl)}");
+                // throw new ImpostorCheatException($"Client sent {call} to an unowned {nameof(InnerPlayerControl)}");
             }
 
             if (target != null)
             {
-                throw new ImpostorCheatException($"Client sent {call} to a specific player instead of broadcast");
+                // throw new ImpostorCheatException($"Client sent {call} to a specific player instead of broadcast");
             }
 
             if (!sender.Character.PlayerInfo.IsImpostor)
             {
-                throw new ImpostorCheatException($"Client sent {call} as crewmate");
+                // throw new ImpostorCheatException($"Client sent {call} as crewmate");
             }
 
             var ventId = reader.ReadPackedUInt32();

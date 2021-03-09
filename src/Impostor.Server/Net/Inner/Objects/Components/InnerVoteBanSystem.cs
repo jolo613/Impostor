@@ -25,19 +25,19 @@ namespace Impostor.Server.Net.Inner.Objects.Components
         {
             if (call != RpcCalls.AddVote)
             {
-                _logger.LogWarning("{0}: Unknown rpc call {1}", nameof(InnerVoteBanSystem), call);
+                // _logger.LogWarning("{0}: Unknown rpc call {1}", nameof(InnerVoteBanSystem), call);
                 return default;
             }
 
             var clientId = reader.ReadInt32();
             if (clientId != sender.Client.Id)
             {
-                throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.AddVote)} as other client");
+                // throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.AddVote)} as other client");
             }
 
             if (target != null)
             {
-                throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CastVote)} to wrong destinition, must be broadcast");
+                // throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CastVote)} to wrong destinition, must be broadcast");
             }
 
             var targetClientId = reader.ReadInt32();
@@ -56,7 +56,7 @@ namespace Impostor.Server.Net.Inner.Objects.Components
         {
             if (!sender.IsHost)
             {
-                throw new ImpostorCheatException($"Client attempted to send data for {nameof(InnerShipStatus)} as non-host");
+                // throw new ImpostorCheatException($"Client attempted to send data for {nameof(InnerShipStatus)} as non-host");
             }
 
             var votes = _votes;
