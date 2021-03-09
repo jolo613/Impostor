@@ -173,12 +173,12 @@ namespace Impostor.Server.Net.Inner.Objects
 
                     if (name.Length > 10)
                     {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CheckName)} with name exceeding 10 characters");
+                        // throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CheckName)} with name exceeding 10 characters");
                     }
 
                     if (string.IsNullOrWhiteSpace(name) || !name.All(TextBox.IsCharAllowed))
                     {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CheckName)} with name containing illegal characters");
+                        // throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CheckName)} with name containing illegal characters");
                     }
 
                     if (sender.Client.Name != name)
@@ -209,19 +209,19 @@ namespace Impostor.Server.Net.Inner.Objects
                     {
                         if (_game.Players.Any(x => x.Character != null && x.Character != this && x.Character.PlayerInfo.PlayerName == name))
                         {
-                            throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetName)} with a name that is already used");
+                            // throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetName)} with a name that is already used");
                         }
 
                         if (sender.Client.Name != name)
                         {
-                            throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetName)} with name not matching his name from handshake");
+                            // throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetName)} with name not matching his name from handshake");
                         }
                     }
                     else
                     {
                         if (PlayerInfo.RequestedPlayerName == null)
                         {
-                            throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetName)} for a player that didn't request it");
+                            // throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetName)} for a player that didn't request it");
                         }
 
                         var expected = PlayerInfo.RequestedPlayerName!;
@@ -245,7 +245,7 @@ namespace Impostor.Server.Net.Inner.Objects
 
                         if (name != expected)
                         {
-                            throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetName)} with incorrect name");
+                            // throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetName)} with incorrect name");
                         }
                     }
 
@@ -316,7 +316,7 @@ namespace Impostor.Server.Net.Inner.Objects
 
                         if (color != expected)
                         {
-                            throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetColor)} with incorrect color");
+                            // throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetColor)} with incorrect color");
                         }
                     }
 

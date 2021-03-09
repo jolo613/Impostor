@@ -46,7 +46,7 @@ namespace Impostor.Server.Net.Inner.Objects.Components
 
             if (!sender.Character.PlayerInfo.IsImpostor)
             {
-                // throw new ImpostorCheatException($"Client sent {call} as crewmate");
+             //    throw new ImpostorCheatException($"Client sent {call} as crewmate");
             }
 
             var ventId = reader.ReadPackedUInt32();
